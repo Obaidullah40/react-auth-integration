@@ -3,14 +3,16 @@ import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+import PrivateRoute from './components/PriveteRouter/PriveteRouter';
 import Register from './components/Register/Register';
-
+import Shipping from './components/Shipping/Shipping';
+import AuthProvider from './context/AuthProvider';
 
 
 function App() {
   return (
     <div className="App">
-      {/* <AuthProvider> */}
+      <AuthProvider>
         <BrowserRouter>
           <Header></Header>
           <Switch>
@@ -26,15 +28,15 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            {/* <PrivateRoute path="/shipping">
+            <PrivateRoute path="/shipping">
               <Shipping></Shipping>
             </PrivateRoute>
-            <PrivateRoute path="/placeorder">
+            {/* <PrivateRoute path="/placeorder">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute> */}
           </Switch>
         </BrowserRouter>
-      {/* </AuthProvider> */}
+      </AuthProvider>
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import useFirebase from '../../hooks/useFirebase';
 
 
 const Login = () => {
-    const {signInUsingGoogle} = useFirebase();
-    console.log(signInUsingGoogle);
-    // const { signInUsingGoogle, signInUsingGithub } = useAuth();
+    // const {signInUsingGoogle} = useFirebase();
+    const { signInUsingGoogle, signInUsingGithub } = useAuth();
     return (
         <div>
             <h2>Please Login</h2>
@@ -14,8 +14,8 @@ const Login = () => {
             
             <br />  
              
-            {/* <button onClick={signInUsingGithub}>GitHub Sign In</button>
-            <br /> */}
+            <button onClick={signInUsingGithub}>GitHub Sign In</button>
+            <br />
             <Link to="/register">New User?</Link>
         </div>
     );
